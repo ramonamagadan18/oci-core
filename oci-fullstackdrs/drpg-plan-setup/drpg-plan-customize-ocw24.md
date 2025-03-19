@@ -25,7 +25,7 @@ There are two types of plan groups
 Estimated Time: 20 Minutes
 
 Watch the video below for a quick walk-through of the lab.
-[Creation of DR protection group and switchover plan](videohub:)
+[Creation of DR plans](videohub:1_i7lcn5q9)
 
 ### Objectives
 
@@ -123,7 +123,7 @@ Watch the video below for a quick walk-through of the lab.
 
     ![dr plans summary](./images/phoenix-drplans-summary.png)
 
-13. For the rest of the tutorial, we are going to use **mushop-app-failover-iad-phx** plan. Based on the required you can add respective user-defined plan groups for other DR plans.
+13. For the rest of the tutorial, we are going to use **mushop-app-failover-iad-phx** plan. Based on the requirements, you can add respective user-defined plan groups for other DR plans.
 
 ## Task 2: Customize the Failover plan-Restore Database Wallet group
 
@@ -135,7 +135,7 @@ Watch the video below for a quick walk-through of the lab.
 
     ![add plan group](./images/phoenix-plangroup-add-new.png)
 
-2.  Add **Restore Database Wallet** in the Group name, select **Add after** radio button, select **Update Destination Load Balancers' Backend Sets** in the Group and Click **Add Step**
+2.  Add **Restore Database Wallet** in the Group name, select **Add after** radio button, select **Load Balancers - Update Destination Backend Sets** in the Group and Click **Add Step**
 
     ![add dbrestore plangroup](./images/phoenix-dbrestore-plangroup-new.png)
 
@@ -189,7 +189,7 @@ Watch the video below for a quick walk-through of the lab.
 
     ![Add dbrestore steps](./images/phoenix-dbrestore-bothsteps-new.png)
 
-    **mushop-phoenix** DRPG will go into updating state, and after a few seconds, it will return to the active state. Refresh the DRPG page if required. You should be able to see that the *Restore Database Wallet* Plan group is created successfully with both steps. **Restore Database Wallet** plan group will be added after **Update Destination Load Balancers' Backend Sets** plan group.
+    **mushop-phoenix** DRPG will go into updating state, and after a few seconds, it will return to the active state. Refresh the DRPG page if required. You should be able to see that the *Restore Database Wallet* Plan group is created successfully with both steps. **Restore Database Wallet** plan group will be added after **Load Balancers - Update Destination Backend Sets** plan group.
 
     ![added dbrestore plangroup](./images/phoenix-dbrestore-addedpg-new.png)
  
@@ -266,7 +266,7 @@ Watch the video below for a quick walk-through of the lab.
 
 2.  Let's review the **mushop-app-failover-iad-ph** failover plan 
 
-    -  Built-in Prechecks - These are the built-in prechecks groups for all the Plan groups (Built-in and User defined).
+    -  Prechecks-Built in - These are the built-in prechecks groups for all the Plan groups (Built-in and User defined).
     -  Based on the members we have added in both Primary DRPG and Standby DRPG, Full Stack DR created **four** Built-in plan groups for the failover plan.
     -  We have manually created **two** user-defined groups as per the Mushop application failover requirements.
     -  In summary, the **mushop-app-failover-iad-phx** failover plan has created with *one*- Built-in prechecks plan group, *four*- Built-in Plan groups,*two*- User defined Plan groups
@@ -282,4 +282,4 @@ Watch the video below for a quick walk-through of the lab.
 ## Acknowledgements
 
 - **Author** - Suraj Ramesh, Principal Product Manager,Oracle Database High Availability (HA), Scalability and Maximum Availability Architecture (MAA)
-- **Last Updated By/Date** -  Suraj Ramesh,June 2024
+- **Last Updated By/Date** -  Suraj Ramesh,September 2024

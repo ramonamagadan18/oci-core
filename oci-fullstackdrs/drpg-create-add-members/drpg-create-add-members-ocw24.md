@@ -8,18 +8,23 @@ In this lab, we will Create and Associate Disaster Recovery Protection Groups (D
 
 **Members**- A resource type which can be added to a DRPG. Full Stack DR currently supports all the below member types. These resources can be added as member to a DRPG.
 
-- Compute Instances ( Moving and Non-moving)
-- Boot and Block Volumes (Volume Groups)
-- Oracle Exadata Database Service
-- Oracle Base Database Service
-- Oracle Autonomous Database on Shared Exadata Infrastructure (Serverless)
-- Load Balancer
+- Compute ( Standard Compute and Dedicated VM Host (DVH))
+- Block Storage (Volume Groups)
+- Oracle Autonomous Database Serverless (ADB-S)
+- Oracle Autonomous Database on Dedicated Exadata Infrastructure (ADB-D)
+- Autonomous Database on Exadata Cloud@Customer (ADB-C@C)
+- Oracle Base Database Service (BaseDB/DBCS)
+- Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D/ExaCS)
+- Oracle Exadata Database Service on Cloud@Customer (ExaCC)
+- Oracle Exadata Database Service on Exascale Infrastructure (ExaDB-XS)
+- Load Balancer and Network Load Balancer 
 - File Storage Service
+- Object Storage Bucket
 
 Estimated Time: 25 Minutes
 
 Watch the video below for a quick walk-through of the lab.
-[Creation of DR protection group and switchover plan](videohub:)
+[Creation of DR protection group and switchover plan](videohub:1_bsr4qru5)
 
 ### Objectives
 
@@ -123,7 +128,11 @@ Watch the video below for a quick walk-through of the lab.
     It will show various resource types and select **Autonomous Database**
     ![drpg resource type](./images/ashburn-resource-new-members.png)
 
-    Select the Database in your compartment; it will have MushopDB-XXXXX. Verify it and hit add. Make sure to check the box **"I understand that all existing plans will be deleted"**
+    Select the Database in your compartment; it will have MushopDB-XXXXX. 
+    
+    Default option for standby type of DR Drill is "Refreshable clone", so we will select this.
+
+    Verify it and hit add. Make sure to check the box **"I understand that all existing plans will be deleted"**
 
     ![drpg add atp](./images/ashburn-atp-add-new.png)
 
@@ -271,7 +280,7 @@ Watch the video below for a quick walk-through of the lab.
 
     ![drpg landing page](./images/drpg-status-phoenix-new.png)
 
-4.  In the Phoenix region DRPG page, add the members required in the **mushop-phoenix** DRPG. *We will be adding ATP Standby Database and Load Balancer*. Let's add those details.  **We don't need to add compute and volume groups as we VM's are designed in cold VM DR pattern and those VM's will be created automatically during the DR switchover process by Full Stack DR**
+4.  In the Phoenix region DRPG page, add the members required in the **mushop-phoenix** DRPG. *We will be adding ATP Standby Database and Load Balancer*. Let's add those details.  **We don't need to add compute and volume groups as we VM's are designed in cold VM DR pattern and those VM's will be created automatically during the DR Failover plan execution by Full Stack DR**
 
 5.  Add ATP Standby Database. Select **mushop-phoenix** DRPG, navigate to **Members** in the *Resources* section, and hit **Add Member**
 
@@ -280,7 +289,11 @@ Watch the video below for a quick walk-through of the lab.
     It will show various resource types and select **Autonomous Database**
     ![drpg resource type](./images/phoenix-resource-new-members.png)
 
-    Select the Database in your compartment; it will have **MushopDB-XXXXX**. Verify it and hit add. Make sure to check the box **"I understand that all existing plans will be deleted"**
+    Select the Database in your compartment; it will have **MushopDB-XXXXX**. 
+    
+    Default option for standby type of DR Drill is "Refreshable clone", so we will select this.
+
+    Verify it and hit add. Make sure to check the box **"I understand that all existing plans will be deleted"**
 
     ![drpg add atp](./images/phoenix-atp-add-new.png)
 
@@ -324,4 +337,4 @@ Watch the video below for a quick walk-through of the lab.
 ## Acknowledgements
 
 - **Author** - Suraj Ramesh, Principal Product Manager,Oracle Database High Availability (HA), Scalability and Maximum Availability Architecture (MAA)
-- **Last Updated By/Date** -  Suraj Ramesh,June 2024
+- **Last Updated By/Date** -  Suraj Ramesh,September 2024
